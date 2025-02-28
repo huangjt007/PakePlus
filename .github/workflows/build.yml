@@ -84,7 +84,7 @@ jobs:
               with:
                   tagName: 'zserp'
                   releaseName: 'zserp v__VERSION__'
-                  releaseBody: '这是一个测试版本'
+                  releaseBody: '测试系统'
                   releaseDraft: false
                   prerelease: false
                   publish: true
