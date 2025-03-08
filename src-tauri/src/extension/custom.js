@@ -80,55 +80,60 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log('已清除登录信息');
     }
     
-    // 判断是否需要清除登录信息的页面
-    const currentPath = window.location.pathname;
-    if (currentPath === '/login' || currentPath === '/index') {
-        clearLoginInfo();
-        console.log(`${currentPath} 页面已清除登录信息`);
+    // 判断当前页面是否是登录页
+    function isLoginPage() {
+        const currentPath = window.location.pathname;
+        return currentPath.startsWith('/login');
     }
     
-    // 创建通知元素
-    const notificationDiv = document.createElement('div');
-    notificationDiv.style.cssText = `
-        position: fixed;
-        top: 16px;
-        left: 16px;
-        background: linear-gradient(145deg, #42b883, #35495e);
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        z-index: 9999;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        user-select: none;
-        pointer-events: auto;
-    `;
-    
-    // 设置通知内容
-    notificationDiv.innerHTML = `
-        <div style="font-weight: bold; margin-bottom: 4px;">
-            ${appInfo.name}
-        </div>
-        <div style="font-size: 12px; opacity: 0.9;">
-            版本 ${appInfo.version}
-        </div>
-    `;
-    
-    // 添加到页面
-    document.body.appendChild(notificationDiv);
-    
-    // 5秒后自动隐藏
-    setTimeout(() => {
-        notificationDiv.style.opacity = '0';
-    }, 5000);
-    
-    // 点击显示/隐藏
-    notificationDiv.addEventListener('click', () => {
-        notificationDiv.style.opacity = notificationDiv.style.opacity === '0' ? '1' : '0';
-    });
+    // 只在登录页面清除登录信息和显示通知
+    if (isLoginPage()) {
+        // 清除登录信息
+        clearLoginInfo();
+        console.log(`${window.location.pathname} 页面已清除登录信息`);
+        
+        // 创建通知元素
+        const notificationDiv = document.createElement('div');
+        notificationDiv.style.cssText = `
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(145deg, #42b883, #35495e);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            user-select: none;
+            pointer-events: auto;
+        `;
+        
+        // 设置通知内容
+        notificationDiv.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 4px;">
+                ${appInfo.name}
+            </div>
+            <div style="font-size: 12px; opacity: 0.9;">
+                版本 ${appInfo.version}
+            </div>
+        `;
+        
+        // 添加到页面
+        document.body.appendChild(notificationDiv);
+        
+        // 5秒后淡出并移除元素
+        setTimeout(() => {
+            notificationDiv.style.opacity = '0';
+            // 等待淡出动画完成后移除元素
+            setTimeout(() => {
+                notificationDiv.remove();
+            }, 300); // 300ms 是 transition 的持续时间
+        }, 5000);
+    }
     
     // 分发就绪事件
     const event = new CustomEvent('pakeplusReady', { detail: appInfo });
