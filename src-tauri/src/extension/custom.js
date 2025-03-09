@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 注入应用信息
 window.addEventListener('DOMContentLoaded', () => {
     const APP_NAME = 'zserp';
-    const APP_VERSION = '1.0.2';
+    const APP_VERSION = '1.0.3';
     
     const appInfo = {
         name: APP_NAME,
