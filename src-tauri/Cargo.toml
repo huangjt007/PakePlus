@@ -1,6 +1,6 @@
 [package]
 name = "zserp"
-version = "1.0.2"
+version = "1.0.3"
 description = "紫上工业ERP系统1.0.1"
 authors = ["1024xiaoshen"]
 edition = "2021"
@@ -18,7 +18,7 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
-tauri = { version = "2", features = ["protocol-asset"] }
+tauri = { version = "2", features = ["protocol-asset", "devtools"] }
 tauri-plugin-opener = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
