@@ -1,6 +1,6 @@
 [package]
 name = "zserptest"
-version = "1.0.3"
+version = "1.0.5"
 description = "test"
 authors = ["1024xiaoshen"]
 edition = "2021"
