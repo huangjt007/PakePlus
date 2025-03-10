@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 注入应用信息
 window.addEventListener('DOMContentLoaded', () => {
     const APP_NAME = 'zserptest';
-    const APP_VERSION = '1.0.3';
+    const APP_VERSION = '1.0.5';
     
     const appInfo = {
         name: APP_NAME,
