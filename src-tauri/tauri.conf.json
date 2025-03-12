@@ -4,7 +4,7 @@
     "version": "1.0.5",
     "identifier": "com.zserptest.app",
     "app": {
-        "windows": [{"title":"","url":"http://localhost/login?redirect=/index","userAgent":"","width":800,"height":600,"theme":null,"resizable":true,"fullscreen":false,"maximized":true,"minWidth":1024,"minHeight":768,"maxWidth":2560,"maxHeight":1440,"decorations":true,"transparent":false,"titleBarStyle":"Visible","visible":true,"focus":true,"closable":true,"minimizable":true,"maximizable":true,"alwaysOnTop":false,"alwaysOnBottom":false,"center":false,"skipTaskbar":false,"tabbingIdentifier":null,"parent":null,"dragDropEnabled":true,"browserExtensionsEnabled":false,"devtools":true,"contentProtected":false,"hiddenTitle":false,"incognito":false,"proxyUrl":null,"useHttpsScheme":false,"zoomHotkeysEnabled":false,"acceptFirstMouse":false,"create":false}],
+        "windows": [{"title":"","url":"http://test.syneswelt.cn/login?redirect=/index","userAgent":"","width":800,"height":600,"theme":null,"resizable":true,"fullscreen":false,"maximized":true,"minWidth":1024,"minHeight":768,"maxWidth":2560,"maxHeight":1440,"decorations":true,"transparent":false,"titleBarStyle":"Visible","visible":true,"focus":true,"closable":true,"minimizable":true,"maximizable":true,"alwaysOnTop":false,"alwaysOnBottom":false,"center":false,"skipTaskbar":false,"tabbingIdentifier":null,"parent":null,"dragDropEnabled":true,"browserExtensionsEnabled":false,"devtools":true,"contentProtected":false,"hiddenTitle":false,"incognito":false,"proxyUrl":null,"useHttpsScheme":false,"zoomHotkeysEnabled":false,"acceptFirstMouse":false,"create":false}],
         "security": {
             "assetProtocol": {
                 "enable": true,
