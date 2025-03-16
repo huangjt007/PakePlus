@@ -48,11 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // 注入应用信息
 window.addEventListener('DOMContentLoaded', () => {
     const APP_NAME = 'zserp';
-    const APP_VERSION = '1.0.3';
+    const APP_VERSION = '1.0.6';
+    const APP_URL = 'http://39.107.95.45:8099/login?redirect=/index';
     
     const appInfo = {
         name: APP_NAME,
         version: APP_VERSION,
+        url: APP_URL,
         isPakeApp: true
     };
     window.PAKEPLUS_APP = appInfo;
@@ -112,6 +114,21 @@ window.addEventListener('DOMContentLoaded', () => {
             pointer-events: auto;
         `;
         
+        // 处理 URL 脱敏
+        const desensitizeUrl = (url) => {
+            try {
+                const urlObj = new URL(url);
+                // 如果是 IP 地址，去掉端口号
+                if(/^\d+\.\d+\.\d+\.\d+$/.test(urlObj.hostname)) {
+                    return `${urlObj.protocol}//${urlObj.hostname}${urlObj.pathname}`;
+                }
+                // 如果是域名，保持原样
+                return `${urlObj.protocol}//${urlObj.hostname}${urlObj.pathname}`;
+            } catch(e) {
+                return url;
+            }
+        };
+        
         // 设置通知内容
         notificationDiv.innerHTML = `
             <div style="font-weight: bold; margin-bottom: 4px;">
@@ -119,6 +136,9 @@ window.addEventListener('DOMContentLoaded', () => {
             </div>
             <div style="font-size: 12px; opacity: 0.9;">
                 版本 ${appInfo.version}
+            </div>
+            <div style="font-size: 12px; opacity: 0.9; margin-top: 4px;">
+                地址 ${desensitizeUrl(appInfo.url)}
             </div>
         `;
         
