@@ -1,7 +1,7 @@
 [package]
 name = "zserp"
-version = "1.0.3"
-description = "紫上工业ERP系统1.0.1"
+version = "1.0.6"
+description = "紫上工业ERP系统1.0.6"
 authors = ["1024xiaoshen"]
 edition = "2021"
 
